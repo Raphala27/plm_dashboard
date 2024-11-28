@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Historique des projets{% endblock %}
+{% block content %}
+<h1>Historique des projets</h1>
+{% if projects %}
+    <ul>
+    {% for project in projects %}
+        <li>
+            <strong>Nom du projet:</strong> {{ project.name }}<br>
+            <strong>Description:</strong> {{ project.description }}<br>
+            <strong>BOM:</strong> 
+            <ul>
+                <li><strong>Nom:</strong> {{ project.bom_name }}</li>
+                <li><strong>Champs:</strong> {{ project.bom_fields }}</li>
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucun projet créé pour le moment.</p>
+{% endif %}
+<a href="{{ url_for('plm_dashboard') }}">Retour au tableau de bord</a>
+{% endblock %}

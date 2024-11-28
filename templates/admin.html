@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h1>Welcome, Admin!</h1>
+<p>This is the admin dashboard. Manage users, settings, and other administrative tasks here.</p>
+<a href="{{ url_for('plm_dashboard') }}" class="button">Go to PLM Dashboard</a>
+{% endblock %}

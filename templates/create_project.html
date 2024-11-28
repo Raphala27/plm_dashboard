@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Création de projet{% endblock %}
+{% block content %}
+<h1>Création de projet</h1>
+<form method="post" action="{{ url_for('create_project') }}">
+    <label for="project_name">Nom du projet:</label>
+    <input type="text" id="project_name" name="project_name" required>
+    
+    <label for="project_description">Description:</label>
+    <textarea id="project_description" name="project_description" required></textarea>
+    
+    <h2>Création du BOM (Build of Materials)</h2>
+    <label for="bom_name">Nom du BOM:</label>
+    <input type="text" id="bom_name" name="bom_name" required>
+    
+    <label for="bom_fields">Champs associés au BOM:</label>
+    <textarea id="bom_fields" name="bom_fields" placeholder="Saisissez les champs séparés par des virgules" required></textarea>
+    
+    <button type="submit">Valider la création</button>
+</form>
+<a href="{{ url_for('plm_dashboard') }}">Retour au tableau de bord</a>
+{% endblock %}

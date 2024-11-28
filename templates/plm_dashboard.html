@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}PLM Dashboard{% endblock %}
+{% block content %}
+<h1>PLM Dashboard</h1>
+<nav>
+    <ul>
+        <li><a href="{{ url_for('create_project') }}">Création de projet</a></li>
+        <li><a href="{{ url_for('view_projects') }}">Visualisation historique projet</a></li>
+    </ul>
+</nav>
+<p>Bienvenue sur le tableau de bord PLM. Sélectionnez une action dans le menu ci-dessus.</p>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
