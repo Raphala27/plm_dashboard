@@ -116,7 +116,7 @@ def create_project():
         bom_fields = request.form['bom_fields']
         
         # Ajouter le projet dans la base de données
-        conn = get_db_connection()
+        conn = get_db()
         with conn:
             conn.execute('''
                 INSERT INTO projects (name, description, bom_name, bom_fields)
@@ -150,6 +150,16 @@ def init_db():
             username TEXT UNIQUE NOT NULL,
             password TEXT NOT NULL,
             role TEXT NOT NULL
+        )
+    ''')
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS projects (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            description TEXT NOT NULL,
+            bom_name TEXT NOT NULL,
+            bom_fields TEXT NOT NULL
         )
     ''')
     conn.commit()
